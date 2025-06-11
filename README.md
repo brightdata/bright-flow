@@ -158,6 +158,7 @@ BrightFlow's enhanced capabilities are powered by Bright Data's enterprise-grade
 # Bright Data Configuration (Primary)
 BRIGHT_DATA_API_KEY=your_bright_data_api_key
 BRIGHT_DATA_ZONE=your_unlocker_zone_name
+BRIGHT_DATA_DEFAULT_ENGINE="<search_engine>"
 
 # Fallback search engines (optional)
 SEARCH_API=bright_data  # Primary search provider
