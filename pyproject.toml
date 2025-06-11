@@ -68,3 +68,8 @@ extend-exclude = '''
 # in the root of the project.
 ^/build/
 '''
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+]

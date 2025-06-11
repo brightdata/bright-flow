@@ -58,10 +58,10 @@ def get_web_search_tool(max_search_results: int):
         )
     elif SELECTED_SEARCH_ENGINE == SearchEngine.BRIGHT_DATA.value:
         return LoggedBrightDataSearch(
-        name="web_search",
-        max_results=max_search_results,
-        search_engine=os.getenv("BRIGHT_DATA_DEFAULT_ENGINE", "google"),
-    )
+            name="web_search",
+            max_results=max_search_results,
+            search_engine=os.getenv("BRIGHT_DATA_DEFAULT_ENGINE", "google"),
+        )
     else:
         raise ValueError(f"Unsupported search engine: {SELECTED_SEARCH_ENGINE}")
 

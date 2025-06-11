@@ -36,16 +36,19 @@ from ..config import SELECTED_SEARCH_ENGINE, SearchEngine
 logger = logging.getLogger(__name__)
 
 
-
 class SearchQueries(BaseModel):
     """Optimized search queries for research."""
+
     queries: List[str] = Field(description="List of optimized search queries")
 
-def generate_search_queries(original_query: str, num_queries: int, locale: str = "en-US") -> list[str]:
+
+def generate_search_queries(
+    original_query: str, num_queries: int, locale: str = "en-US"
+) -> list[str]:
     """Generate optimized search queries from the original user query."""
     from src.llms.llm import get_llm_by_type
     from src.config.agents import AGENT_LLM_MAP
-    
+
     prompt = f"""Given this research request: "{original_query}"
 
 Generate {num_queries} optimized search queries that would help gather comprehensive information about this topic. Each query should:
@@ -57,16 +60,17 @@ Generate {num_queries} optimized search queries that would help gather comprehen
     try:
         llm = get_llm_by_type(AGENT_LLM_MAP.get("coordinator", "basic"))
         structured_llm = llm.with_structured_output(SearchQueries)
-        
+
         response = structured_llm.invoke([{"role": "user", "content": prompt}])
-        
+
         if response and response.queries:
-            return response.queries[:num_queries]  
+            return response.queries[:num_queries]
     except Exception as e:
         logger.warning(f"Failed to generate search queries: {e}")
-    
+
     # Fallback: return the original query
     return [original_query]
+
 
 @tool
 def handoff_to_planner(
@@ -85,39 +89,41 @@ def background_investigation_node(
     logger.info("background investigation node is running.")
     configurable = Configuration.from_runnable_config(config)
     original_query = state["messages"][-1].content
-    
-    max_queries = getattr(configurable, 'max_background_queries', state.get('max_background_queries', 3))
-    
-    search_queries = generate_search_queries(original_query, max_queries, state.get('locale', 'en-US'))
+
+    max_queries = getattr(
+        configurable, "max_background_queries", state.get("max_background_queries", 3)
+    )
+
+    search_queries = generate_search_queries(
+        original_query, max_queries, state.get("locale", "en-US")
+    )
     logger.info(f"Generated {len(search_queries)} search queries: {search_queries}")
-    
+
     all_results = []
-    
+
     for i, query in enumerate(search_queries):
         logger.info(f"Executing search query {i+1}/{len(search_queries)}: {query}")
-        
+
         if SELECTED_SEARCH_ENGINE == SearchEngine.TAVILY:
             searched_content = LoggedTavilySearch(
                 max_results=configurable.max_search_results
             ).invoke({"query": query})
-            
+
             if isinstance(searched_content, list):
                 query_results = [
-                    {
-                        "query": query,
-                        "title": elem["title"], 
-                        "content": elem["content"]
-                    }
+                    {"query": query, "title": elem["title"], "content": elem["content"]}
                     for elem in searched_content
                 ]
                 all_results.extend(query_results)
             else:
-                logger.error(f"Tavily search returned malformed response for query '{query}': {searched_content}")
+                logger.error(
+                    f"Tavily search returned malformed response for query '{query}': {searched_content}"
+                )
         else:
-            query_results = get_web_search_tool(
-                configurable.max_search_results
-            ).invoke(query)
-            
+            query_results = get_web_search_tool(configurable.max_search_results).invoke(
+                query
+            )
+
             if isinstance(query_results, list):
                 for result in query_results:
                     if isinstance(result, dict):
@@ -125,11 +131,13 @@ def background_investigation_node(
                 all_results.extend(query_results)
             else:
                 all_results.append({"query": query, "results": query_results})
-            
-            logger.info(f"Search results for query '{query}': {len(query_results) if isinstance(query_results, list) else 1} items")
+
+            logger.info(
+                f"Search results for query '{query}': {len(query_results) if isinstance(query_results, list) else 1} items"
+            )
     logger.info(f"Search results: {all_results}")
     logger.info(f"Total search results collected: {len(all_results)}")
-    
+
     return Command(
         update={
             "background_investigation_results": json.dumps(
@@ -477,6 +485,7 @@ async def _execute_agent_step(
         },
         goto="research_team",
     )
+
 
 async def _setup_and_execute_agent_step(
     state: State,
