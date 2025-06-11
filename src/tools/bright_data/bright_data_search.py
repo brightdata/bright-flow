@@ -22,7 +22,7 @@ class BrightDataSearchWrapper:
     
     def __init__(self, api_key: Optional[str] = None, zone: Optional[str] = None):
         self.api_key = api_key or os.getenv("BRIGHT_DATA_API_KEY")
-        self.zone = zone or os.getenv("BRIGHT_DATA_ZONE", "unblocker")
+        self.zone = zone or os.getenv("BRIGHT_DATA_ZONE", "unlocker")
         self.default_engine = os.getenv("BRIGHT_DATA_DEFAULT_ENGINE", "google")
         
         if not self.api_key:
