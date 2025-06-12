@@ -23,7 +23,9 @@
 
 ## Demo
 
-[TBD]
+
+https://github.com/user-attachments/assets/5829964f-31a0-419c-9978-10e15223ccba
+
 
 
 ## 🚀 What Makes BrightFlow Different
