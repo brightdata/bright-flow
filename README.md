@@ -4,11 +4,20 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Forked from DeerFlow](https://img.shields.io/badge/forked%20from-DeerFlow-green.svg)](https://github.com/bytedance/deer-flow)
 
-> Built upon the incredible DeerFlow foundation, enhanced with Bright Data's powerful capabilities.
+> **Demo Project**: A prototype showcase built upon DeerFlow, demonstrating Bright Data's web intelligence capabilities for research automation.
 
-## 🙏 Special Thanks
+## 🧪 Project Status
 
-**BrightFlow** is a fork of the amazing [DeerFlow](https://github.com/bytedance/deer-flow) project by ByteDance. We extend our deepest gratitude to the original DeerFlow team and the entire ByteDance organization for creating this exceptional Deep Research framework. Their innovative work provided the solid foundation that made BrightFlow possible.
+**BrightFlow** is a **demonstration project** and **prototype** that showcases the integration of Bright Data's web intelligence platform with AI-powered research workflows. This is a **proof-of-concept** built for evaluation and testing purposes.
+
+**Important Notes:**
+- This is a **demo/prototype**, not a production-ready system
+- Built as a **showcase** of Bright Data's capabilities integrated with AI research tools
+- Based on the open-source DeerFlow framework by ByteDance
+
+## 🙏 Attribution
+
+**BrightFlow** is a fork of [DeerFlow](https://github.com/bytedance/deer-flow) by ByteDance. We acknowledge the original DeerFlow team and ByteDance for creating the Deep Research framework that serves as our foundation.
 
 > **Original DeerFlow Description**: Deep Exploration and Efficient Research Flow - a community-driven Deep Research framework that builds upon the incredible work of the open source community.
 
@@ -19,7 +28,7 @@
 
 ## 🚀 What Makes BrightFlow Different
 
-Building upon DeerFlow's excellent foundation, **BrightFlow** introduces significant enhancements powered by **Bright Data's enterprise-grade web intelligence platform**:
+Building upon DeerFlow's foundation, this **demonstration project** showcases enhanced capabilities through **Bright Data's web intelligence platform**:
 
 ### 🔍 **Enhanced Search Capabilities**
 - **Bright Data Search Integration**: Leverages Bright Data's advanced search APIs for more comprehensive and accurate results
@@ -28,13 +37,13 @@ Building upon DeerFlow's excellent foundation, **BrightFlow** introduces signifi
 
 ### 🕷️ **Advanced Web Crawling**
 - **Bright Data Crawling**: Integrated Bright Data's robust crawling infrastructure
-- **Anti-Bot Protection**: Superior ability to access protected content through Bright Data's proxy network
+- **Anti-Bot Protection**: Access to protected content through Bright Data's proxy network
 - **Scalable Data Collection**: Handle large-scale research projects with enterprise-grade crawling capabilities
 
 ### 🧠 **Intelligent Query Processing**
-- **Smart Query Splitting**: Revolutionary node that automatically breaks down complex user queries into multiple optimized sub-queries
+- **Smart Query Splitting**: Node that automatically breaks down complex user queries into multiple optimized sub-queries
 - **Parallel Research**: Execute multiple research streams simultaneously for comprehensive coverage
-- **Context Aggregation**: Intelligently combine results from multiple queries for richer, more complete insights
+- **Context Aggregation**: Combine results from multiple queries for richer, more complete insights
 
 ### 🎨 **Enhanced User Experience**
 - **BrightFlow Branding**: Complete rebrand with improved visual design and user experience
@@ -471,11 +480,12 @@ This project is open source and available under the [MIT License](./LICENSE).
 
 ### 🙏 Gratitude to DeerFlow and ByteDance
 
-BrightFlow exists thanks to the exceptional work of the **DeerFlow team at ByteDance**. We are profoundly grateful for:
+BrightFlow exists thanks to the exceptional work of the **DeerFlow team at ByteDance**.
 
-- **[DeerFlow](https://github.com/bytedance/deer-flow)**: The original innovative Deep Research framework that serves as our foundation
-- **ByteDance**: For open-sourcing this incredible project and contributing to the AI research community
-- **The DeerFlow Contributors**: Whose vision and technical excellence made this enhanced version possible
+We acknowledge:
+- **[DeerFlow](https://github.com/bytedance/deer-flow)**: The original Deep Research framework that serves as our foundation
+- **ByteDance**: For open-sourcing this project and contributing to the AI research community
+- **The DeerFlow Contributors**: Whose work made this enhanced version possible
 
 ### Original DeerFlow Acknowledgments
 
