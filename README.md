@@ -90,7 +90,7 @@ Make sure your system meets the following minimum requirements:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/bright-flow.git
+git clone https://github.com/brightdata/bright-flow.git
 cd bright-flow
 
 # Install dependencies, uv will take care of the python interpreter and venv creation, and install the required packages
